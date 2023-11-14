@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Buy My Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .loading {
+      display: none;
+      margin-top: 10px;
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading::after {
+      content: '\2026'; /* Unicode character for ellipsis */
+      display: inline-block;
+      animation: rotate 1s linear infinite;
+    }
+
+    @media screen and (max-width: 600px) {
+      li {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Buy My Services</h1>
+  </header>
+  <main>
+    <ul>
+      <li>
+        <h2>Ethical Hacking</h2>
+        <p>What you get: Comprehensive ethical hacking services to secure your systems.</p>
+        <button onclick="verify('https://www.roblox.com/users/4396474064/profile')">Buy Now</button>
+        <div id="loadingMessage" class="loading"></div>
+      </li>
+      <li>
+        <h2>Roblox Coach</h2>
+        <p>What you get: Personalized coaching to enhance your Roblox gaming skills.</p>
+        <button onclick="verify('https://www.roblox.com/users/4396474064')">Buy Now</button>
+        <div id="loadingMessage2" class="loading"></div>
+      </li>
+      <li>
+        <h2>Scripter</h2>
+        <p>What you get: Custom scripting services for your projects.</p>
+        <button onclick="verify('https://www.roblox.com/users/4396474064')">Buy Now</button>
+        <div id="loadingMessage3" class="loading"></div>
+      </li>
+      <li>
+        <h2>Coder</h2>
+        <p>What you get: Professional coding services for various applications.</p>
+        <button onclick="verify('https://www.roblox.com/users/4396474064')">Buy Now</button>
+        <div id="loadingMessage4" class="loading"></div>
+      </li>
+      <!-- Add more services as needed -->
+    </ul>
+  </main>
+  <footer>
+    &copy; 2023 Your Company Name
+  </footer>
+  <script>
+    function verify(redirectURL) {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      const answer = num1 + num2;
+
+      const userAnswer = prompt(`What is ${num1} + ${num2}?`);
+
+      if (userAnswer == answer) {
+        const button = event.currentTarget;
+        button.disabled = true;
+
+        const loadingMessage = document.getElementById('loadingMessage');
+        loadingMessage.textContent = 'Payment Loading...';
+        loadingMessage.style.display = 'block';
+
+        setTimeout(function () {
+          loadingMessage.textContent = 'Add Me';
+          setTimeout(function () {
+            window.open(redirectURL, '_blank');
+          }, 2000);
+        }, 3000);
+      } else {
+        alert("Sorry, your answer is incorrect. Please try again.");
+      }
+    }
+  </script>
+</body>
+
+</html>
